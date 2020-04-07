@@ -1,4 +1,4 @@
 .DS_Store
-assets/images/*
-assets/fontawesome-free/*
+assets/images/
+assets/fontawesome-free/
 index_backup.html
