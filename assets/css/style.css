@@ -394,10 +394,14 @@ Dividers
     margin-bottom: 35px;
 }
 .divider-form{
+  width: 100%;
   color: var(--secondary-color);
   display: inline-block;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid;
 }
 @media (min-width: 768px) {
     .divider-wrap {
@@ -438,9 +442,8 @@ Table booking form
     position: relative;
     margin-bottom: 30px;
 }
-.booking-form .form-control {
+.booking-form .form-control  {
     background-color: #ebecee;
-    border-radius: 1px;
     border: none;
     height: 40px;
     -webkit-box-shadow: none;
@@ -450,6 +453,10 @@ Table booking form
     padding: 0.42rem .75rem;
     font-family: sans-serif;
     font-size: 16px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.input-group-prepend span{
+    border: none;
 }
 .booking-form .form-control::-webkit-input-placeholder {
     color: rgba(62, 72, 92, 0.3);
@@ -529,6 +536,18 @@ Table booking form
 .booking-cta p {
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
+}
+.booking-form .alert {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  height: 25px;
+  line-height:25px;
+  padding:0px 10px;
+}
+
+#mail-status {
+  display: block;
+  margin-top: 20px;
 }
 /*////////////////////////////
 Video testimonial
@@ -788,4 +807,32 @@ Carousel
 	display: block;
 	font-family: 'EB Garamond', serif;
 	font-size: 110%;
+}
+/*////////////////////////////
+Scroll to top
+///////////////////////////*/
+
+.scroll-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(90, 92, 105, 0.5);
+  line-height: 46px;
+}
+
+.scroll-to-top:focus, .scroll-to-top:hover {
+  color: white;
+}
+
+.scroll-to-top:hover {
+  background: #5a5c69;
+}
+
+.scroll-to-top i {
+  font-weight: 800;
 }

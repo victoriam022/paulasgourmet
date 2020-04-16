@@ -1,4 +1,5 @@
 .DS_Store
 assets/images/
-assets/fontawesome-free/
 index_backup.html
+assets/includes/config.php
+assets/includes/mail_setup.php

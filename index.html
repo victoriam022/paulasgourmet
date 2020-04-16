@@ -3,13 +3,14 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=yes">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
     <meta name="author" content="sharebootstrap.com, victoriamg.it"/>
     <meta name="description" content="Ofrecemos servicios gastronómicos para todo tipo de eventos y reuniones sin un mínimo de comensales requerido">
     <link rel="canonical" href="https://sharebootstrap.com" />
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap JQuery UI CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/overcast/jquery-ui.css">
     <!-- Style -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -23,6 +24,7 @@
     <title>Paula's Gourmet Catering</title>
     <script src="https://kit.fontawesome.com/9d039918e2.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
@@ -52,10 +54,24 @@ $(window).on("load resize", function() {
     $dropdown.off("mouseenter mouseleave");
   }
 });
+
+$( function() {
+    $("#fecha").datepicker({
+      autoSize: true,
+      showAnim: "fadeIn",
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd",
+      yearRange:"c:c+2",
+      dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+      monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ]
+    });
+});
+
     </script>
 </head>
 
-<body>
+<body id="page-top">
   <nav class="navbar navbar-expand-lg fixed-top" id="navigation">
       <div class="container">
         <a class="navbar-brand" id="logo-text" href="index.html"><img id="logo" class="logo" src="assets/images/hat.svg" alt="Paula's Gourmet Catering">Paula's Gourmet</a>
@@ -212,7 +228,7 @@ $(window).on("load resize", function() {
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="mb-5 pb-3 text-center"> <span class="label-title mb-3">Ponemos a tu disposición...</span>
-                        <h1 class="h2 title">Organizamos tu boda</h1>
+                        <h2 class="h2 title">Organizamos tu boda</h2>
                         <p class="w-md-40 mb-0 mx-auto lead">...como funciona?..</p>
                     </div>
                 </div>
@@ -415,94 +431,165 @@ $(window).on("load resize", function() {
                 </div>
                 <div class="col-md-7">
                     <div class="booking-form">
-                        <form>
+                        <div id="cotizacion_form">
 							<span class="form-label">Pide tu cotización</span>
 							<div class="row">
-								<div class="form-group col-sm-6">
-                                <input class="form-control" type="text" placeholder="Tu nombre" required="required" id="nombre"> </div>
-	                            <div class="form-group col-sm-6">
-	                                <input class="form-control" type="email" placeholder="Tu correo" required="required" id="correo"> </div>
-							</div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group"> <span class="form-label">Fecha</span>
-                                        <input class="form-control" type="date" required="required" min="2020-04-01" max="2022-12-31" id="fecha"> </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group"> <span class="form-label">Hora</span>
-                                        <input class="form-control" type="time" required="required" value="12:00" min="07:00" max="23:00" step="10" id="hora"> </div>
-                                </div>
-                            </div>
-                            <div class="row">
-	                                <div class="col-sm-6">
-	                                    <div class="form-group"> <span class="form-label">Tipo de evento</span>
-	                                        <select class="form-control" id="event_type" onchange="seleccion_evento(this);">
-                                            <option value="">Selecciona...</option>
-                    	                      <option value="banquete">Banquete</option>
-                                            <option value="buffet">Buffet</option>
-                                            <option value="canapes">Canapes</option>
-                    												<option value="coffe_break">Coffee Break</option>
-                    												<option value="mesa_postres">Mesa de postres</option>
-                    												<option value="otro">Otro</option>
-	                                        </select> <span class="select-arrow"></span></div>
-	                                </div>
-	                                <div class="col-sm-6">
-	                                    <div class="form-group" id="tiempos" style="display: none;"> <span class="form-label">Tiempos</span>
-	                                        <select class="form-control">
-                                            <option value="">Selecciona...</option>
-                                            <option value="1tiempo">1</option>
-                                            <option value="2tiempos">2</option>
-                                            <option value="3tiempos">3</option>
-                                            <option value="4tiempos">4</option>
-	                                        </select> <span class="select-arrow"></span>
-                                        </div>
-                                        <div class="form-group" id="otro_evento" style="display: none;">
-                                          <span class="form-label">Descripción</span>
-                                          <input class="form-control" type="text" placeholder="describe el tipo de evento">
-    	                                </div>
-	                                </div>
-                                  <hr class="divider-form">
-	                            </div>
-	                            <div class="row">
-	                                <div class="col-sm-6">
-	                                    <div class="form-group"> <span class="form-label">Adultos</span>
-	                                      <input class="form-control" type="number"  required="required" id="adultos" min="1" max="1000" placeholder="0"> </div>
-	                                </div>
-	                                <div class="col-sm-6">
-	                                    <div class="form-group"> <span class="form-label">Niños</span>
-	                                        <input class="form-control" type="number" id="niños" min="0" max="1000" placeholder="0"> </div>
-	                                </div>
-	                            </div>
-                            <div class="form-btn">
-                                <button class="submit-btn">Consulta disponibilidad</button>
-                            </div>
-							</div>
+                <div class="form-group-row col-12 mb-0 has-warning d-none" id="alert_name">
+                <small class='form-text alert alert-danger'>Por favor, escribe tu nombre completo</small>
+              </div>
+                <div class="input-group col-sm-12 mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                    <input class="form-control" type="text" placeholder="Tu nombre completo" required="required" id="nombre">
+                </div>
 
-                        </form>
+							</div>
+              <div class="row">
+                <div class="form-group-row col-12 mb-0 text-lg-right has-warning d-none" id="alert_email">
+                <small class='form-text alert alert-danger'>Debes poner un correo</small>
+              </div>
+              <div class="form-group-row col-12 mb-0 has-warning d-none" id="alert_phone">
+              <small class='form-text alert alert-danger'>Debes poner un teléfono</small>
+            </div>
+                <div class="input-group col-sm-6 mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                  </div>
+                  <input class="form-control" type="tel" placeholder="Tu telefono" required="required" id="telefono">
+                </div>
+                <div class="input-group col-sm-6 mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                  </div>
+                    <input class="form-control" type="email" placeholder="Tu correo" required="required" id="correo">
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group"><span class="form-label">Tipo de Evento</span>
+                      <select class="form-control" id="tipo_evento">
+                        <option value="">Selecciona...</option>
+                        <option value="boda">Boda</option>
+                        <option value="bautizo">Bautizo</option>
+                        <option value="cumpleaños">Cumpleaños</option>
+                        <option value="empresarial">Empresarial</option>
+                        <option value="graduación">Graduación</option>
+                        <option value="primera_comunion">Primera Comunión</option>
+                        <option value="xvaños">XV años</option>
+                        <option value="otro">Otro</option>
+                      </select> <span class="select-arrow"></span>
+                  </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="form-group-row col-12 mb-0 has-warning d-none" id="alert_datetime">
+                <small class='form-text alert alert-danger'>Introduce fecha y hora del evento</small>
+              </div>
+                  <div class="col-sm-6">
+                      <div class="form-group"> <span class="form-label">Fecha del evento</span>
+                          <input class="form-control" type="text" required="required" id="fecha"> </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="form-group"> <span class="form-label">Hora del evento</span>
+                          <input class="form-control" type="time" required="required" value="12:00" min="07:00" max="23:00"  id="hora"> </div>
+                  </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group"> <span class="form-label">Tipo de servicio</span>
+                            <select class="form-control" id="tipo_servicio" onchange="seleccion_servicio(this);">
+                              <option value="">Selecciona...</option>
+                              <option value="banquete">Banquete</option>
+                              <option value="buffet">Buffet</option>
+                              <option value="canapes">Canapes</option>
+                              <option value="coffe_break">Coffee Break</option>
+                              <option value="mesa_postres">Mesa de postres</option>
+                              <option value="otro">Otro</option>
+                            </select> <span class="select-arrow"></span></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group" id="tiempos_div" style="display: none;"> <span class="form-label">Tiempos</span>
+                            <select class="form-control" id="tiempos_buffet">
+                              <option value="">Selecciona...</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select> <span class="select-arrow"></span>
+                          </div>
+                          <div class="form-group" id="tipo_buffet_div" style="display: none;"> <span class="form-label">Tipo de Buffet</span>
+                              <select class="form-control" id="tipo_buffet">
+                                <option value="">Selecciona...</option>
+                                <option value="antojitos">Antojitos</option>
+                                <option value="continental">Continental</option>
+                                <option value="italiano">Italiano</option>
+                                <option value="sushi">Maki sushi</option>
+                                <option value="mexicano">Mexicano</option>
+                                <option value="tacos">Tacos</option>
+                              </select> <span class="select-arrow"></span>
+                            </div>
+                          <div class="form-group" id="otro_evento_div" style="display: none;">
+                            <span class="form-label">Descripción</span>
+                            <input class="form-control" type="text" placeholder="describe el tipo de servicio" id="otro_evento">
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                  <div class="form-group-row col-12 mb-0 has-warning d-none" id="alert_guests">
+                  <small class='form-text alert alert-danger'>Introduce el número de invitados</small>
+                </div>
+                    <div class="col-sm-6">
+                        <div class="form-group"> <span class="form-label">Adultos</span>
+                          <input class="form-control" type="number"  required="required" id="adultos" min="1" max="1000" placeholder="0"> </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group"> <span class="form-label">Niños</span>
+                            <input class="form-control" type="number" id="niños" min="0" max="1000" value="0"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group"> <span class="form-label">Comentarios</span>
+                      <textarea class="form-control" style="height:100px;" id="comentarios" placeholder="Platicanos un poco de tu evento..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-btn">
+                    <button class="btn submit-btn" onClick="sendContact();" id="form_button">Consulta disponibilidad</button>
+                </div>
+                <div id="mail-status" class="form-group-row col-12 mb-0"></div>
+							</div>
+            </div><!--form-->
+          </div>
         </div>
+      </div>
+    </div>
   </main>
-    <footer class="footer">
-        <div class="container"> <a class="footer-logo" href="#"><img class="footer-img" src="assets/images/paula's_gourmet_catering.png"></a>
-            <div class="footer-about">Con amor, desde San Luis Potosí, México</div>
-            <div class="socials">
-                <a class="socials-item mr-md-2" href="https://twitter.com/paulas_gourmet"> <i class="fa fa-twitter"></i> </a>
-                <a class="socials-item mc-md-2" href="https://www.facebook.com/pg/Paulas.gourmet/"> <i class="fa fa-facebook"></i> </a>
-                <a class="socials-item ml-md-2" href="https://www.instagram.com/paulasgourmet/"> <i class="fa fa-instagram"></i> </a>
-                <a class="socials-item ml-md-2" href="https://api.whatsapp.com/send?phone=524441300990"> <i class="fa fa-whatsapp"></i> </a>
-            </div>
-			<div class="footer-about">Síguenos en nuestras redes sociales</div>
-			<div class="footer-muted">&#169; 2020 VictoriaMG</div>
-           <!--   <nav class="footer-nav"> <a class="footer-link" href="#">Terms</a> <a class="footer-link" href="#">Privacy Policy</a> <a class="footer-link" href="#">Support</a> </nav> -->
+  <footer class="footer">
+    <div class="container"> <a class="footer-logo" href="#"><img class="footer-img" src="assets/images/paulas_gourmet_catering.png" alt="Paula's Gourmet Logo"></a>
+        <div class="footer-about">Con amor, desde San Luis Potosí, México</div>
+        <div class="socials">
+            <a class="socials-item mr-md-2" href="https://twitter.com/paulas_gourmet"> <i class="fa fa-twitter"></i> </a>
+            <a class="socials-item mc-md-2" href="https://www.facebook.com/pg/Paulas.gourmet/"> <i class="fa fa-facebook"></i> </a>
+            <a class="socials-item ml-md-2" href="https://www.instagram.com/paulasgourmet/"> <i class="fa fa-instagram"></i> </a>
+            <a class="socials-item ml-md-2" href="https://api.whatsapp.com/send?phone=524441300990"> <i class="fa fa-whatsapp"></i> </a>
         </div>
-    </footer>
+  <div class="footer-about">Síguenos en nuestras redes sociales</div>
+  <div class="footer-muted">&#169; 2020 VictoriaMG</div>
+       <!--   <nav class="footer-nav"> <a class="footer-link" href="#">Terms</a> <a class="footer-link" href="#">Privacy Policy</a> <a class="footer-link" href="#">Support</a> </nav> -->
+    </div>
+  </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script>
     $(document).on('click', '#navbarSupportedContent', function(e) {
       if($(e.target).is('a')){
@@ -514,18 +601,26 @@ $(window).on("load resize", function() {
             return bg;
         });
 
-    function seleccion_evento(that) {
+    function seleccion_servicio(that) {
     if (that.value == "banquete") {
-      document.getElementById("tiempos").style.display = "block";
-      document.getElementById("otro_evento").style.display = "none";
+      document.getElementById("tiempos_div").style.display = "block";
+      document.getElementById("otro_evento_div").style.display = "none";
+      document.getElementById("tipo_buffet_div").style.display = "none";
 
     } else if (that.value == "otro"){
-      document.getElementById("tiempos").style.display = "none";
-      document.getElementById("otro_evento").style.display = "block";
-    }
+      document.getElementById("tiempos_div").style.display = "none";
+      document.getElementById("otro_evento_div").style.display = "block";
+      document.getElementById("tipo_buffet_div").style.display = "none";
+
+  } else if (that.value == "buffet"){
+    document.getElementById("tiempos_div").style.display = "none";
+    document.getElementById("otro_evento_div").style.display = "none";
+    document.getElementById("tipo_buffet_div").style.display = "block";
+  }
     else {
-      document.getElementById("tiempos").style.display = "none";
-      document.getElementById("otro_evento").style.display = "none";
+      document.getElementById("tiempos_div").style.display = "none";
+      document.getElementById("otro_evento_div").style.display = "none";
+      document.getElementById("tipo_buffet_div").style.display = "none";
     }
 }
 $(document).ready(function(){
@@ -556,6 +651,71 @@ function scrollFunction() {
     document.getElementById("logo").style.width = "80px";
   }
 }
+function sendContact() {
+  var valid;
+  valid = validateContact();
+  if(!valid){
+    $("#mail-status").html("<p class='alert alert-warning'><i class='fas fa-exclamation-triangle fa-fw'></i><strong>&nbsp;Atención</strong>&nbsp;Por favor, revisa que la información sea correcta</p>");
+
+  }else{
+    jQuery.ajax({
+        url: "assets/includes/phplog.php",
+        data:'userName='+$("#nombre").val()+'&userEmail='+
+        $("#correo").val()+'&userPhone='+
+        $("#telefono").val()+'&eventType='+
+        $("#tipo_evento").val()+'&eventDate='+
+        $("#fecha").val()+'&eventTime='+
+        $("#hora").val()+'&serviceType='+
+        $("#tipo_servicio").val()+'&buffetType='+
+        $("#tipo_buffet").val()+'&courses='+
+        $("#tiempos_buffet").val()+'&otherDescription='+
+        $("#otro_evento").val()+'&adults='+
+        $("#adultos").val()+'&children='+
+        $("#niños").val()+'&comments='+
+        $("#comentarios").val(),
+        type: "POST",
+        success:function(data){
+            $("#mail-status").html(data);
+            $("#form_button").prop("disabled", true);
+            $("#form_button").addClass("disabled");
+        },
+        error:function (){
+          $("#mail-status").html("<small class='form-text alert alert-danger'><i class='fas fa-times'>&nbsp;Se ha presentado un problema, por favor intenta más tarde.</small>");
+        }
+    });
+  }
+}
+function validateContact() {
+	var valid = true;
+	$(".has-warning").addClass("d-none");
+	if (!$("#nombre").val()) {
+		$("#alert_name").removeClass("d-none");
+		valid = false;
+	}
+	if (!$("#correo").val()) {
+		$("#alert_email").removeClass("d-none");
+		valid = false;
+	}
+	if (!$("#correo").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+		$("#alert_email").removeClass("d-none");
+		$("#alert_email").html("<small class='form-text alert alert-danger'>Correo invalido</small>");
+		valid = false;
+	}
+	if (!$("#telefono").val()) {
+		$("#alert_phone").removeClass("d-none");
+		valid = false;
+	}
+	if (!$("#fecha").val()) {
+		$("#alert_datetime").removeClass("d-none");
+		valid = false;
+	}
+	if (!$("#adultos").val()) {
+		$("#alert_guests").removeClass("d-none");
+		valid = false;
+	}
+	return valid;
+}
+
     </script>
 </body>
 
