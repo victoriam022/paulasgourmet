@@ -3,6 +3,7 @@
 
 $to_text = "To: =?UTF-8?B?" . base64_encode($toName) . "?= <" . $toEmail . ">\r\n";
 $from_text = "From: =?UTF-8?B?" . base64_encode($name) . "?= <" . $email . ">\r\n";
+$cc_text = "CC: =?UTF-8?B?" . base64_encode($ccname) . "?= <" . $ccemail . ">\r\n";
 $subject = "Nueva solicitud de cotización para " . $event_type;
 $subject = "=?UTF-8?B?" . base64_encode($subject) . "?=";
 $message = "<html><head><title> " . $subject . "</title></head><body><h1>Detalles cotización</h1><table style='border: 0;color:#4d4d4d;font-size:14px;width:100%' width='100%'><tr><td>Nombre:</td><td> " . $name . " </td></tr><tr><td>Telefono:</td><td> " . $phone . " </td></tr><tr><td>Evento:</td><td> " . $event_type . " </td></tr><tr><td>Fecha Evento:</td><td> " . $event_datetime . " </td></tr><tr><td>Adultos:</td><td> " . $adults . " </td></tr><tr><td>Niños:</td><td> " . $children . " </td></tr>
@@ -28,7 +29,7 @@ $mailHeaders .= $to_text;
 $mailHeaders .= $from_text;
 $mailHeaders .= 'X-Mailer: PHP/' . phpversion();
 
-  if(mail($toEmail, $subject, $message ,$mailHeaders)) {
+  if(mail($toEmails, $subject, $message ,$mailHeaders)) {
     $email_sent = true;
     print "<p class='alert alert-success'><i class='fas fa-check'></i><strong>&nbsp;¡Gracias!</strong>&nbsp;Tu mensaje ha sido enviado </p>";
 } else {

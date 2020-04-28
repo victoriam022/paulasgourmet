@@ -76,6 +76,29 @@ Just some helpers
 .btn-round {
     border-radius: 60px;
 }
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-xl {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 40px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+.btn-circle.btn-xl:hover{
+  background-color: #fff;
+  border: 0px;
+  color: #25D366
+}
 .primary-btn {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -137,6 +160,7 @@ span.gray-light-outline:hover {
 }
 .space-md {
     padding: 90px 0;
+    overflow-x: hidden;
 }
 .full-width {
     width: 100%;
@@ -549,6 +573,12 @@ Table booking form
   display: block;
   margin-top: 20px;
 }
+@media only screen and (max-width: 768px) {
+  .booking-form{
+    width: 100%;
+  }
+}
+
 /*////////////////////////////
 Video testimonial
 ///////////////////////////*/
@@ -676,7 +706,7 @@ Footer
 }
 .footer-about {
     max-width: 560px;
-    margin: 0 auto 34px;
+    margin: 0 auto 20px;
     opacity: 0.7;
     font-size: 24px;
     line-height: 1.33333;
@@ -695,8 +725,37 @@ Footer
 
 }
 .footer .socials .socials-item{
-  color: var(--primary-color);
+  color: #fff;
   opacity: 0.6;
+}
+.footer .socials .social-icons{
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: 1s;
+  width: 28px;
+  height: 28px;
+  margin: 0 10px;
+}
+.footer .socials .social-icons:hover{
+  opacity: 1;
+  transition: 0.5s;
+}
+.footer .socials .socials-item:hover{
+  opacity: 1;
+  transition: 0.5s;
+}
+.footer-payment {
+  max-width: 560px;
+  opacity: 0.7;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+.footer-payment i{
+  margin-right: 10px;
+  margin-left: 10px;
 }
 /*////////////////////////////
 Subscribe form
@@ -821,7 +880,8 @@ Scroll to top
   height: 2.75rem;
   text-align: center;
   color: #fff;
-  background: rgba(90, 92, 105, 0.5);
+  background: var(--primary-color);
+  opacity: 0.5;
   line-height: 46px;
 }
 
@@ -830,9 +890,30 @@ Scroll to top
 }
 
 .scroll-to-top:hover {
-  background: #5a5c69;
+  opacity: 1;
 }
 
 .scroll-to-top i {
   font-weight: 800;
 }
+.rounded {
+  border-radius: 0.35rem !important;
+}
+/*////////////////////////////
+Socials section
+///////////////////////////*/
+.social-section{
+	padding: 10px;
+  max-height: 50px;
+}
+.social-section i{
+	color: var(--primary-color);
+	margin: 0 5px;
+	cursor: pointer;
+  font-size: 20px;
+}
+.social-section .fa-facebook:hover{color: #3b5998}
+.social-section .fa-instagram:hover{color: #833ab4}
+.social-section .fa-twitter:hover{color: #1da1f2}
+.social-section .fa-envelope:hover{color: #d44638}
+.social-section .fa-phone:hover{color: #25D366}
