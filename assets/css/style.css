@@ -578,7 +578,22 @@ Table booking form
     width: 100%;
   }
 }
-
+.clickable{
+    position: absolute;
+    cursor: pointer;
+    line-height: 40px;
+    font-weight: 400;
+    opacity: 0.6
+}
+.clickable i:hover{
+    color: var(--primary-color);
+}
+.modal-header{
+  display: block;
+}
+.modal-title{
+  text-align: left;
+}
 /*////////////////////////////
 Video testimonial
 ///////////////////////////*/
@@ -876,13 +891,14 @@ Scroll to top
   right: 1rem;
   bottom: 1rem;
   display: none;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   text-align: center;
   color: #fff;
   background: var(--primary-color);
   opacity: 0.5;
-  line-height: 46px;
+  line-height: 45px;
+  border-radius: 50% !important;
 }
 
 .scroll-to-top:focus, .scroll-to-top:hover {
@@ -895,9 +911,7 @@ Scroll to top
 
 .scroll-to-top i {
   font-weight: 800;
-}
-.rounded {
-  border-radius: 0.35rem !important;
+  margin-bottom: 5px;
 }
 /*////////////////////////////
 Socials section
@@ -917,3 +931,17 @@ Socials section
 .social-section .fa-twitter:hover{color: #1da1f2}
 .social-section .fa-envelope:hover{color: #d44638}
 .social-section .fa-phone:hover{color: #25D366}
+
+/* Date picker */
+
+.date-picker-wrapper{
+  z-index: 3000 !important;
+}
+#bodas div{
+  position: relative;
+}
+#bodas img{
+  width:auto;
+  max-height: 500px;
+  margin-top: 5%;
+}
